@@ -20,7 +20,7 @@ Apple has defined the "Requirements for Connecting Using ATS" in the following s
 
 Please keep in mind that this script does not exhaustively test all requirements for ATS. The script is limited to checking TLS version, symmetric cipher, and certificate hashing algorithm.
 
-At the time of this writing, the requirements for connecting using ATS include the following
+At the time of this writing, the requirements for connecting using ATS include the following:
 TLS version: TLS 1.2 
 Symmetric Cipher: AES-128 or AES-256
 Certificate Hashing Algorithm: SHA-2 (digest length >= 256)
