@@ -27,55 +27,6 @@ Certificate Hashing Algorithm: SHA-2 (digest length >= 256)
 
 The script must be run on a Windows 10 PC or Windows Server. The script will test all the enabled SSL/TLS algorithms enabled on the machine to provide basic connectivity details for all SSL/TLS versions enabled on the machine. However, the script is focused on the TLS 1.2 connection that is required by ATS.
 
-When checking TLS 1.2, the script will also reflect the current Symmetric Cipher and the Certificate Hashing Algorithm. 
-
-Usage:   .\ProbeTlsforATS.ps1 -URI <Website URI>
-Example: .\ProbeTLSforATS.ps1 -URI www.bing.com
-  
-Sample Output:
-++++++++++++++++++++++++++++++++++++++++++++
-+PS C:\> .\ProbeTLSforATS.ps1 -Uri www.bing.com
-+
-+Testing SSL and TLS protocols...
-+
-+Client Side Unsupported Protocols
-+*********************
-+
-+SSL 1.0
-+-------
-+Skipping test. The local client machine does not support the protocol.
-+
-+
-+
-+Client Side Supported Protocol Test Results
-+*********************
-+
-+
-+SSL 2.0 Test Result             : Connection Failed
-+SSL 2.0 Exception Message       : Exception calling "AuthenticateAsClient" with "4" argument(s): "The client and
-+                                  server cannot communicate, because they do not possess a common algorithm"
-+SSL 3.0 Test Result             : Connection Failed
-+SSL 3.0 Exception Message       : Exception calling "AuthenticateAsClient" with "4" argument(s): "Unable to read data
-+                                  from the transport connection: An existing connection was forcibly closed by the
-+                                  remote host."
-+SSL 3.0 Exception Details       : An existing connection was forcibly closed by the remote host
-+TLS 1.0 Test Result             : Connection Succeeded
-+TLS 1.0 Cipher Algorithm        : Aes256
-+TLS 1.0 Hash Algorithm          : Sha1
-+TLS 1.1 Test Result             : Connection Succeeded
-+TLS 1.1 Cipher Algorithm        : Aes256
-+TLS 1.1 Hash Algorithm          : Sha1
-+
-+Testing ATS Compliant Protocol : TLS 1.2
-+
-+TLS 1.2 Algorithms support ATS : True
-+TLS 1.2 Test Result             : Connection Succeeded
-+TLS 1.2 Cipher Algorithm        : Aes128
-+TLS 1.2 Hash Algorithm          : Sha256
-+
-+
-+
-+Refer to the "Requirements for Connecting Using Apple Application Transport Security (ATS)" located at
-+https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html
-++++++++++++++++++++++++++++++++++++++++++++
+When checking SSL/TLS versions < TLS 1.2, the script will reflect the current Symmetric Cipher and the Certificate Hashing Algorithm if the connection is successful.
+When checking TLS 1.2, the script will reflect the settings, but will also highlight if the connection fails, or if the symmetric cipher or certificate hashing algorithm are incompatible with the ATS requirements.
 
